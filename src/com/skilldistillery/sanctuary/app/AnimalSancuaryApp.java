@@ -3,7 +3,9 @@ package com.skilldistillery.sanctuary.app;
 public class AnimalSancuaryApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// TODO Just need a run()method that will then go to Sanctury.java
+		// TODO Initialize scanner
+	
 
 	}
 
