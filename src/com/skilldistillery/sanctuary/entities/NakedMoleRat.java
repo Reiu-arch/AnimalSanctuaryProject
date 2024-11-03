@@ -5,7 +5,7 @@ public class NakedMoleRat extends Animal{
 
 	public static String noise = "Chirp Chirp";
 	
-
+	
 	
 	@Override
 	public void makeNoise() {
