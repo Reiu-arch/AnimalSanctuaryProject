@@ -7,7 +7,6 @@ public class Attendant {
 	//TODO needs inout to give animals food, only needs to be random from 0-10 units with no user input 
 	
 public void makeRounds(Animal[] animal){
-		System.out.println("Its time to go feed the animals, lets go!");
 		
 		for (Animal animalVar: animal) {
 			if (animalVar != null) {
