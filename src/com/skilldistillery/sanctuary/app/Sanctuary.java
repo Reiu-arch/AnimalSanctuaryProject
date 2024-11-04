@@ -20,7 +20,7 @@ public class Sanctuary {
 		attendant.makeRounds(animalList);
 	}
 
-	public void listAnimals(Animal[] animalList) {
+	public void listAnimals() {
 		for (Animal animal : animalList) {
 			if (animal != null) {
 				System.out.println(animal.getName());
