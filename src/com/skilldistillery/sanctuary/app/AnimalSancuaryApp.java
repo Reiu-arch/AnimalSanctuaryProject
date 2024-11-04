@@ -2,15 +2,14 @@ package com.skilldistillery.sanctuary.app;
 
 import java.util.Scanner;
 
-import com.skilldistillery.sanctuary.entities.Animal;
 import com.skilldistillery.sanctuary.entities.Attendant;
+import com.skilldistillery.sanctuary.entities.BlobFish;
+import com.skilldistillery.sanctuary.entities.NakedMoleRat;
+import com.skilldistillery.sanctuary.entities.SugarGlider;
 // TODO Just need a run() method that will then go to Sanctury.java
 // TODO Initialize scanner
 // TODO Fill out Read me page
 // TODO make a switch board
-import com.skilldistillery.sanctuary.entities.BlobFish;
-import com.skilldistillery.sanctuary.entities.NakedMoleRat;
-import com.skilldistillery.sanctuary.entities.SugarGlider;
 
 public class AnimalSancuaryApp {
 	// scanner and sanctuary do not work if put inside main, guess is due to main
@@ -46,7 +45,8 @@ public class AnimalSancuaryApp {
 				sanctuary.listAnimals();
 				break;
 			case 2:
-				System.out.println("You chose to add a new animal to an empty lot, here is a list of the animals we can currently facilitate.");
+				System.out.println(
+						"You chose to add a new animal to an empty lot, here is a list of the animals we can currently facilitate.");
 				addAnimal();
 				break;
 			case 3:
@@ -67,31 +67,9 @@ public class AnimalSancuaryApp {
 	}
 
 	private void addAnimal() {
+		//you can put a method in a method to make a method with only methods inside of it
 		animalMenu();
-		int input = sc.nextInt();
-		
-		Animal addAnimal;
-		
-		if (input == 1) {
-			BlobFish blobfish = new BlobFish();
-			
-			
-			
-		} else if (input == 2) {
-			NakedMoleRat moleRat = new NakedMoleRat();
-			
-			
-			
-			
-		}else if (input == 3) {
-			SugarGlider sugarglider = new SugarGlider();
-			
-			
-			
-		} else {
-			System.out.println("Please choose an animal!");
-		}
-		
+		subAddAnimal();
 	}
 
 	private void displayMenu() {
@@ -104,17 +82,49 @@ public class AnimalSancuaryApp {
 		System.out.println("| 4.) Leave the Sanctuary                  |");
 		System.out.println("+------------------------------------------+");
 	}
-	
+
 	private void animalMenu() {
-String border =            "************************************";
-        
-        System.out.println(border);
-        System.out.println("*        Please choose an animal: *");
-        System.out.println("*  1.) Blob Fish                  *");
-        System.out.println("*  2.) Naked Mole Rat             *");
-        System.out.println("*  3.) Sugar Glider               *");
-        System.out.println(border);
+		String border = "************************************";
+
+		System.out.println(border);
+		System.out.println("*        Please choose an animal: *");
+		System.out.println("*  1.) Blob Fish                  *");
+		System.out.println("*  2.) Naked Mole Rat             *");
+		System.out.println("*  3.) Sugar Glider               *");
+		System.out.println(border);
 	}
-	
+
+	private void subAddAnimal() {
+		int input = sc.nextInt();
+
+		if (input == 1) {
+			BlobFish blobfish = new BlobFish();
+			System.out.println("What is the Blob Fish's name?");
+			String bname = sc.nextLine();
+			blobfish.setName(bname);
+			sanctuary.addAnimal(blobfish);
+
+			sc.nextLine();
+		} else if (input == 2) {
+			NakedMoleRat moleRat = new NakedMoleRat();
+			System.out.println("What is the Mole Rat's name?");
+			String mname = sc.nextLine();
+			moleRat.setName(mname);
+			sanctuary.addAnimal(moleRat);
+
+			sc.nextLine();
+		} else if (input == 3) {
+			SugarGlider sugarGlider = new SugarGlider();
+			System.out.println("What is the Sugar Glider's name?");
+			String sname = sc.nextLine();
+			sugarGlider.setName(sname);
+			sanctuary.addAnimal(sugarGlider);
+
+			sc.nextLine();
+		} else {
+			System.out.println("Please choose an animal!");
+			sc.nextLine();
+		}
+	}
 
 }
