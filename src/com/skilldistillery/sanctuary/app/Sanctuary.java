@@ -3,7 +3,7 @@ package com.skilldistillery.sanctuary.app;
 import com.skilldistillery.sanctuary.entities.Animal;
 import com.skilldistillery.sanctuary.entities.Attendant;
 
-public class Sancutary {
+public class Sanctuary {
 //TODO public       animal list              void   "has an array of five Animals representing the enclosures in the sanctuary"
 //TODO public       animal adding            void   
 //TODO private      attendant                void   "Attendant field"
