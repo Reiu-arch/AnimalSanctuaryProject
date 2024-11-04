@@ -45,20 +45,24 @@ public class AnimalSancuaryApp {
 				sanctuary.listAnimals();
 				break;
 			case 2:
-				System.out.println(
-						"You chose to add a new animal to an empty lot, here is a list of the animals we can currently facilitate.");
 				if (sanctuary.maxCap()) {
 					System.out.println("Looks like we cant take in any more animals, we're sorry.");
-					
-				animalMenu();
+					break;
 				}
+				
+				System.out.println(
+						"You chose to add a new animal to an empty lot, here is a list of the animals we can currently facilitate.");
+				animalMenu();
 				int input = sc.nextInt();
-
+				sc.nextLine();
 				if (input == 1) {
 					BlobFish blobfish = new BlobFish();
 					System.out.println("What is the Blob Fish's name?");
 					String bname = sc.nextLine();
 					blobfish.setName(bname);
+					System.out.println("What type of food to they eat?");
+					String bfname = sc.nextLine();
+					blobfish.setFood(bfname);
 					sanctuary.addAnimal(blobfish);
 					break;
 
@@ -67,6 +71,9 @@ public class AnimalSancuaryApp {
 					System.out.println("What is the Mole Rat's name?");
 					String mname = sc.nextLine();
 					moleRat.setName(mname);
+					System.out.println("What type of food to they eat?");
+					String brname = sc.nextLine();
+					moleRat.setFood(brname);
 					sanctuary.addAnimal(moleRat);
 
 					break;
@@ -75,6 +82,9 @@ public class AnimalSancuaryApp {
 					System.out.println("What is the Sugar Glider's name?");
 					String sname = sc.nextLine();
 					sugarGlider.setName(sname);
+					System.out.println("What type of food to they eat?");
+					String bsname = sc.nextLine();
+					sugarGlider.setFood(bsname);
 					sanctuary.addAnimal(sugarGlider);
 
 					break;
@@ -120,6 +130,5 @@ public class AnimalSancuaryApp {
 		System.out.println("*  3.) Sugar Glider               *");
 		System.out.println(border);
 	}
-
 
 }

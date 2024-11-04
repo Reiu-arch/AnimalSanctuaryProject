@@ -23,7 +23,7 @@ public class Sanctuary {
 	public void listAnimals() {
 		for (Animal animal : animalList) {
 			if (animal != null) {
-				System.out.println("Looks like" + animal.getName()+ "is here!");
+				System.out.println("Looks like " + animal.getName()+ " is here!");
 
 			} else {
 				System.out.println("This enclosure is Empty!");
@@ -37,7 +37,8 @@ public class Sanctuary {
 
 			if (animalList[i] == null) {
 				animalList[i] = animal;
-				System.out.println(animal+"has now been added into the sanctuary!");
+				
+				System.out.println( animal.getName() +" has now been added into the sanctuary!");
 				return;
 			}
 
@@ -46,9 +47,9 @@ public class Sanctuary {
 	public boolean maxCap() {
 		for (int j = 0;j < animalList.length; j++) {
 			if (animalList[j] == null) {
-			return true;
+			return false;
 			}
 		}
-		return false;
+		return true;
 	}
 }

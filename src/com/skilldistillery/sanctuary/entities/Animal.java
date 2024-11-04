@@ -3,6 +3,7 @@ package com.skilldistillery.sanctuary.entities;
 public class Animal {
 //TODO name, get name, set name, eat, makename
 	private String name;
+	private String food;
 
 //from my understanding, makes a copy of the privates name to make it a sudo interactable
 	public String getName() {
@@ -24,6 +25,16 @@ public class Animal {
 	}
 	
 	//food type
-	public void foodType() {
+	public void foodType(String food) {
+		this.setFood(food);
 	}
+
+	public String getFood() {
+		return food;
+	}
+
+	public void setFood(String food) {
+		this.food = food;
+	}
+	
 }

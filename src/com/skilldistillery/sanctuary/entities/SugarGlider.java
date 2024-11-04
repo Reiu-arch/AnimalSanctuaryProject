@@ -14,10 +14,6 @@ public class SugarGlider extends Animal {
 		System.out.println(noise);
 		super.makeNoise();
 	}
-	public void kindOfFood() {
-		System.out.println(food);
-		super.foodType();
-	}
 
 	// intakes random food quantity from attendant class, and passes it through
 	// overridden eat method, also outputs noise from specified animal via make
@@ -25,8 +21,7 @@ public class SugarGlider extends Animal {
 	@Override
 	public int eat(int amount) {
 		makeNoise();
-		System.out.print("You fed the sugar glider," + amount);
-		kindOfFood();
+		System.out.println("You fed the Sugar Glider, " + amount+" "+ getFood());
 		return super.eat(amount);
 	}
 }

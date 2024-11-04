@@ -11,9 +11,10 @@ public void makeRounds(Animal[] animal){
 		for (Animal animalVar: animal) {
 			if (animalVar != null) {
 				int foodQuantity = (int)(Math.random()*11);
-				System.out.print("Hey, " + animalVar.getName()+ " heres "+ foodQuantity);
-				animalVar.foodType();
+				System.out.println("Hey, " + animalVar.getName()+ " is here! Lets give em "+ foodQuantity +" "+ animalVar.getFood());
 				System.out.println("_____________________");
+				animalVar.eat(foodQuantity);
+				break;
 			} else {
 				System.out.println("Looks like nobody is in here!");
 			}
