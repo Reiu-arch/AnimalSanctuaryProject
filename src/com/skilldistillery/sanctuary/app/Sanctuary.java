@@ -10,11 +10,11 @@ public class Sanctuary {
 //TODO public       attendant rounds         void
 	private Animal[] animalList = new Animal[5];
 	private Attendant attendant;
-	
+
 	public void setAttendant(Attendant attendant) {
 		this.attendant = attendant;
 	}
-	
+
 	public void startAttendantRounds() {
 		System.out.println("Its time to go feed the animals, lets go!");
 		attendant.makeRounds(animalList);
@@ -23,21 +23,32 @@ public class Sanctuary {
 	public void listAnimals() {
 		for (Animal animal : animalList) {
 			if (animal != null) {
-				System.out.println(animal.getName());
-			} else if (animal == null) {
+				System.out.println("Looks like" + animal.getName()+ "is here!");
+
+			} else {
 				System.out.println("This enclosure is Empty!");
+
 			}
 		}
 	}
 
 	public void addAnimal(Animal animal) {
-		for (int i = 0; i < animalList.length; i += 1) {
+		for (int i = 0; i < animalList.length; i++) {
+
 			if (animalList[i] == null) {
 				animalList[i] = animal;
-			} else if (animalList[i] != null) {
-				System.out.println("Enclosure is Full!!!");
+				System.out.println(animal+"has now been added into the sanctuary!");
+				return;
 			}
+
 		}
 	}
-
+	public boolean maxCap() {
+		for (int j = 0;j < animalList.length; j++) {
+			if (animalList[j] == null) {
+			return true;
+			}
+		}
+		return false;
+	}
 }

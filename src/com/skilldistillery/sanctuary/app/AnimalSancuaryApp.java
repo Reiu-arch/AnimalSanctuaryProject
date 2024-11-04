@@ -32,9 +32,9 @@ public class AnimalSancuaryApp {
 		Sanctuary sanctuary = new Sanctuary();
 
 		sanctuary.setAttendant(new Attendant());
-		boolean exit = false;
+		boolean running = true;
 
-		while (!exit) {
+		while (running) {
 			displayMenu();
 			System.out.print("Choose an option (1-4): ");
 			int choice = sc.nextInt();
@@ -47,15 +47,48 @@ public class AnimalSancuaryApp {
 			case 2:
 				System.out.println(
 						"You chose to add a new animal to an empty lot, here is a list of the animals we can currently facilitate.");
-				addAnimal();
-				break;
+				if (sanctuary.maxCap()) {
+					System.out.println("Looks like we cant take in any more animals, we're sorry.");
+					
+				animalMenu();
+				}
+				int input = sc.nextInt();
+
+				if (input == 1) {
+					BlobFish blobfish = new BlobFish();
+					System.out.println("What is the Blob Fish's name?");
+					String bname = sc.nextLine();
+					blobfish.setName(bname);
+					sanctuary.addAnimal(blobfish);
+					break;
+
+				} else if (input == 2) {
+					NakedMoleRat moleRat = new NakedMoleRat();
+					System.out.println("What is the Mole Rat's name?");
+					String mname = sc.nextLine();
+					moleRat.setName(mname);
+					sanctuary.addAnimal(moleRat);
+
+					break;
+				} else if (input == 3) {
+					SugarGlider sugarGlider = new SugarGlider();
+					System.out.println("What is the Sugar Glider's name?");
+					String sname = sc.nextLine();
+					sugarGlider.setName(sname);
+					sanctuary.addAnimal(sugarGlider);
+
+					break;
+				} else {
+					System.out.println("Please choose an animal!");
+					break;
+				}
 			case 3:
 				System.out.println("You chose to send the keeper on their rounds.");
 				sanctuary.startAttendantRounds();
 				break;
 			case 4:
 				System.out.println("You chose to leave the Sanctuary. Goodbye!");
-				exit = true;
+				running = false;
 				break;
 			default:
 				System.out.println("Invalid choice, please try again.");
@@ -64,12 +97,6 @@ public class AnimalSancuaryApp {
 		}
 
 		sc.close();
-	}
-
-	private void addAnimal() {
-		//you can put a method in a method to make a method with only methods inside of it
-		animalMenu();
-		subAddAnimal();
 	}
 
 	private void displayMenu() {
@@ -94,37 +121,5 @@ public class AnimalSancuaryApp {
 		System.out.println(border);
 	}
 
-	private void subAddAnimal() {
-		int input = sc.nextInt();
-
-		if (input == 1) {
-			BlobFish blobfish = new BlobFish();
-			System.out.println("What is the Blob Fish's name?");
-			String bname = sc.nextLine();
-			blobfish.setName(bname);
-			sanctuary.addAnimal(blobfish);
-
-			sc.nextLine();
-		} else if (input == 2) {
-			NakedMoleRat moleRat = new NakedMoleRat();
-			System.out.println("What is the Mole Rat's name?");
-			String mname = sc.nextLine();
-			moleRat.setName(mname);
-			sanctuary.addAnimal(moleRat);
-
-			sc.nextLine();
-		} else if (input == 3) {
-			SugarGlider sugarGlider = new SugarGlider();
-			System.out.println("What is the Sugar Glider's name?");
-			String sname = sc.nextLine();
-			sugarGlider.setName(sname);
-			sanctuary.addAnimal(sugarGlider);
-
-			sc.nextLine();
-		} else {
-			System.out.println("Please choose an animal!");
-			sc.nextLine();
-		}
-	}
 
 }
